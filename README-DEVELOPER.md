@@ -5,6 +5,9 @@
 - `index.html`: standalone review and GitHub Pages preview.
 - `crewzz-homepage.php`: WordPress child-theme page template that renders the reviewed `index.html` source without copy or layout drift.
 - `resource-center.html`: the proposed Resource Center architecture and preview landing page.
+- `how-crewzz-works.html`, `design.html`, `build.html`, and `estates.html`: substantial internal-page previews with production canonical URLs.
+- `internal.css`: shared internal-page design system.
+- `robots.txt` and `sitemap.xml`: production-ready starting points that must be installed at the site root and verified after deployment.
 - `assets/images/`: temporary generated concept images plus official Crewzz logo assets.
 
 The ten concept images are temporary and must not be represented as Crewzz projects. Replace them with Crewzz-owned photography or properly licensed final media before production launch.
@@ -23,7 +26,7 @@ Create `/resources/` in WordPress using `resource-center.html` as the content an
 
 ## Required integrations before launch
 
-- Create and publish `/how-crewzz-works/` before activating the WordPress template. The standalone preview routes those CTAs to the Stewardship slide until that page exists.
+- Build the four internal page previews as native WordPress pages at their canonical paths. The PHP wrapper maps preview links to those production routes.
 
 - Project-fit application: GoHighLevel, followed by the ASM scheduling flow.
 - Crewzz Secure application: GoHighLevel.
@@ -32,6 +35,8 @@ Create `/resources/` in WordPress using `resource-center.html` as the content an
 - Hack My Home: capture in GoHighLevel, then redirect to GoKollab registration.
 - Add approved consent and privacy language before collecting phone numbers.
 - Replace preview-only form behavior with real success, error, and duplicate-contact handling.
+- Preserve the two-step project-fit form and guided path selector when connecting the real CRM flow.
+- Replace every block labeled `Approved placeholder` or `Concept imagery` with approved Crewzz-owned proof before launch.
 - Add approved GA4 and Meta Pixel identifiers.
 
 ## Video replacement pattern

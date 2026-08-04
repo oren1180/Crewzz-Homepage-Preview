@@ -1,0 +1,530 @@
+<?php
+/**
+ * Template Name: Crewzz Cinematic Homepage
+ * Template Post Type: page
+ *
+ * Install this file in the active child theme under:
+ * /crewzz-homepage/crewzz-homepage.php
+ */
+defined('ABSPATH') || exit;
+$crewzz_assets = get_stylesheet_directory_uri() . '/crewzz-homepage/assets';
+?><!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>Crewzz | Stewardship for Your Home</title>
+  <meta name="description" content="Crewzz brings Stewardship to the way homes are planned, built, and cared for, while leading a movement to create a better homeowner experience.">
+  <link rel="canonical" href="https://crewzz.com/">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+  <meta name="theme-color" content="#073B4C">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://crewzz.com/">
+  <meta property="og:site_name" content="Crewzz">
+  <meta property="og:title" content="Crewzz | Stewardship for Your Home">
+  <meta property="og:description" content="Construction is complicated. Losing control should not be part of it.">
+  <meta property="og:image" content="https://crewzz.com/wp-content/uploads/2026/06/download.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Crewzz | Stewardship for Your Home">
+  <meta name="twitter:description" content="Construction is complicated. Losing control should not be part of it.">
+  <meta name="twitter:image" content="https://crewzz.com/wp-content/uploads/2026/06/download.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Production: insert the approved GA4 and Meta Pixel IDs. No tracking fires in this preview. -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {
+        "@type":"Organization",
+        "@id":"https://crewzz.com/#organization",
+        "name":"Crewzz",
+        "url":"https://crewzz.com/",
+        "logo":"https://crewzz.com/wp-content/uploads/2025/05/Bright-Logo-Colored-Transparent.png",
+        "description":"Crewzz brings Stewardship to the way homes are planned, built, and cared for, while leading a movement to create a better homeowner experience."
+      },
+      {
+        "@type":"WebSite",
+        "@id":"https://crewzz.com/#website",
+        "url":"https://crewzz.com/",
+        "name":"Crewzz",
+        "publisher":{"@id":"https://crewzz.com/#organization"},
+        "inLanguage":"en-US"
+      },
+      {
+        "@type":"WebPage",
+        "@id":"https://crewzz.com/#webpage",
+        "url":"https://crewzz.com/",
+        "name":"Crewzz | Stewardship for Your Home",
+        "isPartOf":{"@id":"https://crewzz.com/#website"},
+        "about":{"@id":"https://crewzz.com/#organization"},
+        "description":"Crewzz helps homeowners navigate design, construction, renovation, and long-term home care through Stewardship.",
+        "inLanguage":"en-US"
+      },
+      {
+        "@type":"Person",
+        "@id":"https://crewzz.com/our-story/#oren-dagan",
+        "name":"Oren Dagan",
+        "jobTitle":"Founder",
+        "worksFor":{"@id":"https://crewzz.com/#organization"},
+        "url":"https://crewzz.com/our-story/"
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root{
+      --navy:#073B4C;
+      --dark:#04222C;
+      --coral:#E75465;
+      --yellow:#FEC14B;
+      --mint:#52CCA9;
+      --paper:#F6F3EC;
+      --white:#fff;
+      --muted:rgba(255,255,255,.72);
+      --line:rgba(255,255,255,.22);
+      --header:86px;
+      --pad:clamp(24px,5vw,76px);
+      --display:"Inter","Helvetica Neue",Arial,sans-serif;
+      --body:"Manrope","Inter","Helvetica Neue",Arial,sans-serif;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-snap-type:y mandatory;background:var(--dark)}
+    body{margin:0;color:var(--white);font-family:var(--body);background:var(--dark);overflow-x:hidden}
+    body.modal-open{overflow:hidden}
+    a{color:inherit}
+    button,input,select,textarea{font:inherit}
+    button,a{-webkit-tap-highlight-color:transparent}
+    .skip{position:fixed;left:16px;top:-100px;z-index:1000;background:#fff;color:var(--dark);padding:12px 16px;border-radius:8px}
+    .skip:focus{top:14px}
+
+    .site-header{position:fixed;inset:0 0 auto;z-index:100;height:var(--header);display:flex;align-items:center;justify-content:space-between;padding:0 var(--pad);background:linear-gradient(180deg,rgba(4,34,44,.88),rgba(4,34,44,0));pointer-events:none}
+    .site-header>*{pointer-events:auto}
+    .logo{display:block;width:clamp(126px,14vw,188px)}
+    .logo img{width:100%;height:auto;display:block}
+    .header-actions{display:flex;align-items:center;gap:12px}
+    .menu-button{border:1px solid var(--line);background:rgba(4,34,44,.35);color:#fff;border-radius:999px;padding:11px 16px;cursor:pointer}
+    .menu{position:fixed;inset:0 0 0 auto;width:min(420px,100%);z-index:220;background:var(--paper);color:var(--dark);padding:28px clamp(24px,5vw,48px);transform:translateX(102%);transition:transform .35s ease;box-shadow:-24px 0 80px rgba(0,0,0,.28)}
+    .menu.open{transform:none}
+    .menu-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:50px}
+    .menu strong{font:700 14px/1 var(--display);letter-spacing:.13em;text-transform:uppercase}
+    .menu-close{border:0;background:none;color:var(--dark);font-size:28px;cursor:pointer;padding:8px}
+    .menu nav{display:grid;gap:10px}
+    .menu nav a{text-decoration:none;font:500 clamp(25px,5vw,38px)/1.25 var(--display);padding:6px 0}
+    .menu .menu-cta{margin-top:36px}
+
+    .stripe{display:inline-grid;grid-template-rows:repeat(3,4px);gap:4px;width:34px;vertical-align:middle;margin-right:12px}
+    .stripe i{display:block;border-radius:5px}.stripe i:nth-child(1){background:var(--coral)}.stripe i:nth-child(2){background:var(--yellow)}.stripe i:nth-child(3){background:var(--mint)}
+
+    main{position:relative}
+    .slide{position:relative;min-height:100svh;scroll-snap-align:start;scroll-snap-stop:always;display:grid;align-items:center;overflow:hidden;padding:calc(var(--header) + 28px) var(--pad) clamp(96px,12vh,136px);isolation:isolate;background:var(--dark)}
+    .slide::before{content:"";position:absolute;inset:-2%;z-index:-3;background-image:var(--image);background-position:center;background-size:cover;transform:scale(1.04);transition:transform 1.8s cubic-bezier(.2,.7,.2,1);animation:cinematicDrift 18s ease-in-out infinite alternate}
+    .slide.active::before{transform:scale(1.015)}
+    @keyframes cinematicDrift{from{background-position:48% 50%}to{background-position:53% 48%}}
+    .concept-label{position:absolute;z-index:5;right:var(--pad);top:calc(var(--header) + 12px);font:600 9px/1 var(--display);letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.54)}
+    .slide::after{content:"";position:absolute;inset:0;z-index:-2;background:linear-gradient(90deg,rgba(4,34,44,.94) 0%,rgba(4,34,44,.79) 43%,rgba(4,34,44,.34) 72%,rgba(4,34,44,.57) 100%)}
+    .slide.clean::after{background:linear-gradient(115deg,rgba(4,34,44,.98),rgba(7,59,76,.87) 55%,rgba(4,34,44,.7))}
+    .slide-inner{width:min(760px,74vw);transform:translateY(18px);opacity:.35;transition:opacity .65s ease,transform .65s ease}
+    .slide.active .slide-inner{transform:none;opacity:1}
+    .eyebrow{margin:0 0 18px;color:var(--mint);font:700 11px/1.3 var(--display);letter-spacing:.22em;text-transform:uppercase}
+    h1,h2{font-family:var(--display);font-weight:500;letter-spacing:-.045em;margin:0;text-wrap:balance}
+    h1{font-size:clamp(42px,6vw,86px);line-height:.98}
+    h2{font-size:clamp(35px,5vw,70px);line-height:1.01}
+    .accent{color:var(--mint)}
+    .lead{max-width:670px;margin:24px 0 0;color:var(--muted);font-size:clamp(16px,1.5vw,21px);line-height:1.62}
+    .lead strong{color:#fff;font-weight:600}
+    .actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:32px}
+    .button{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:13px 22px;border:1px solid rgba(255,255,255,.8);border-radius:999px;color:#fff;text-decoration:none;font:700 13px/1 var(--display);letter-spacing:.02em;cursor:pointer;background:transparent;transition:transform .2s ease,background .2s ease,color .2s ease,border-color .2s ease}
+    .button:hover,.button:focus-visible{transform:translateY(-2px);background:#fff;color:var(--dark);outline:none}
+    .button.primary{background:var(--mint);border-color:var(--mint);color:var(--dark)}
+    .button.primary:hover,.button.primary:focus-visible{background:#fff;border-color:#fff}
+    .button.coral{background:var(--coral);border-color:var(--coral)}
+    .button.yellow{background:var(--yellow);border-color:var(--yellow);color:var(--dark)}
+    .button.dark{background:var(--navy);border-color:var(--navy);color:#fff}
+    .availability{display:inline-flex;align-items:center;gap:9px;margin-bottom:18px;padding:9px 13px;border:1px solid rgba(82,204,169,.52);border-radius:999px;color:#d8fff2;background:rgba(82,204,169,.1);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+    .availability::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--mint);box-shadow:0 0 0 5px rgba(82,204,169,.14)}
+    .proof{display:flex;gap:24px;flex-wrap:wrap;margin-top:28px;padding-top:24px;border-top:1px solid var(--line);color:rgba(255,255,255,.75);font-size:13px}
+    .proof span{display:flex;align-items:center;gap:8px}.proof span::before{content:"";width:5px;height:5px;background:var(--mint);border-radius:50%}
+    .pathways{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:30px;max-width:660px}
+    .pathway{display:block;text-decoration:none;padding:24px;border:1px solid var(--line);background:rgba(4,34,44,.4);backdrop-filter:blur(8px);transition:transform .2s ease,background .2s ease}
+    .pathway:hover,.pathway:focus-visible{transform:translateY(-3px);background:rgba(7,59,76,.78);outline:2px solid #fff;outline-offset:2px}
+    .pathway small{display:block;margin-bottom:10px;color:var(--muted);font-size:11px;letter-spacing:.18em;text-transform:uppercase}
+    .pathway strong{font:500 clamp(22px,3vw,34px)/1.1 var(--display)}
+    .pathway.design{border-top:3px solid var(--coral)}.pathway.build{border-top:3px solid var(--yellow)}
+
+    .slide-count{position:fixed;z-index:95;right:var(--pad);bottom:32px;display:flex;align-items:center;gap:12px;color:rgba(255,255,255,.72);font:600 11px/1 var(--display);letter-spacing:.12em}
+    .progress{width:90px;height:1px;background:rgba(255,255,255,.28)}.progress span{display:block;width:10%;height:100%;background:#fff;transition:width .35s ease}
+    .slide-nav{position:fixed;z-index:95;left:var(--pad);bottom:25px;display:flex;gap:8px}
+    .slide-nav button{width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:rgba(4,34,44,.42);color:#fff;cursor:pointer;font-size:18px}
+    .slide-nav button:hover,.slide-nav button:focus-visible{background:#fff;color:var(--dark);outline:none}
+    .side-dots{position:fixed;z-index:90;right:24px;top:50%;transform:translateY(-50%);display:grid;gap:8px}
+    .side-dots a{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.35);transition:height .2s,background .2s;border:0}
+    .side-dots a.active{height:25px;background:var(--mint)}
+
+    .founder-mark{margin-top:26px;color:#fff;font:600 13px/1.5 var(--display)}
+    .founder-mark span{display:block;color:var(--muted);font-weight:400}
+    .community-list{display:flex;gap:10px;flex-wrap:wrap;margin:26px 0 0;padding:0;list-style:none}
+    .community-list li{padding:9px 13px;border:1px solid var(--line);border-radius:999px;color:rgba(255,255,255,.82);font-size:12px}
+
+    .mobile-cta{display:none;position:fixed;z-index:96;left:12px;right:12px;bottom:max(12px,env(safe-area-inset-bottom));box-shadow:0 10px 35px rgba(0,0,0,.3)}
+
+    .modal{position:fixed;inset:0;z-index:300;display:none;place-items:center;padding:20px;background:rgba(2,18,23,.78);backdrop-filter:blur(10px)}
+    .modal.open{display:grid}
+    .dialog{position:relative;width:min(660px,100%);max-height:min(860px,92svh);overflow:auto;background:var(--paper);color:var(--dark);border-radius:20px;padding:clamp(26px,5vw,52px);box-shadow:0 30px 100px rgba(0,0,0,.45)}
+    .dialog h2{font-size:clamp(30px,5vw,50px)}
+    .dialog p{color:#3c5057;line-height:1.6}
+    .modal-close{position:absolute;right:18px;top:16px;border:0;background:none;color:var(--dark);font-size:28px;cursor:pointer}
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-top:24px}
+    .field{display:grid;gap:7px}.field.full{grid-column:1/-1}.field label{font-size:12px;font-weight:700}.field input,.field select,.field textarea{width:100%;border:1px solid rgba(7,59,76,.25);border-radius:10px;background:#fff;color:var(--dark);padding:13px 14px}.field textarea{min-height:95px;resize:vertical}.field input:focus,.field select:focus,.field textarea:focus{outline:2px solid var(--mint);outline-offset:1px}.form-note{grid-column:1/-1;font-size:11px!important;margin:0}.form-success{display:none;margin-top:20px;padding:16px;border-radius:10px;background:rgba(82,204,169,.18);color:var(--dark)!important}.form-success.show{display:block}
+
+    .sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+
+    @media(max-width:760px){
+      :root{--header:72px}
+      html{scroll-snap-type:y proximity}
+      .header-actions>.button{display:none}
+      .slide{padding-bottom:118px;align-items:end}
+      .slide-inner{width:100%}
+      .slide::after{background:linear-gradient(0deg,rgba(4,34,44,.98) 4%,rgba(4,34,44,.76) 63%,rgba(4,34,44,.25) 100%)}
+      h1{font-size:clamp(39px,12vw,58px)}h2{font-size:clamp(34px,10vw,52px)}
+      .lead{font-size:16px;line-height:1.52;margin-top:18px}
+      .actions{margin-top:24px}.button{min-height:48px;padding:12px 18px}
+      .pathways{grid-template-columns:1fr}.pathway{padding:18px}
+      .side-dots,.slide-count,.slide-nav{display:none}
+      .mobile-cta{display:flex}
+      .form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.form-note{grid-column:auto}
+      .proof{gap:10px 18px}
+    }
+    @media(max-height:680px) and (min-width:761px){.slide{padding-top:100px;padding-bottom:82px}.lead{margin-top:16px}.actions{margin-top:20px}h1{font-size:clamp(38px,5.3vw,68px)}h2{font-size:clamp(32px,4.4vw,58px)}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.slide::before,.slide-inner,.button,.pathway,.menu{transition:none!important}.slide::before{transform:none;animation:none}.slide-inner{opacity:1;transform:none}}
+  </style>
+  <?php wp_head(); ?>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header" aria-label="Site header">
+    <a class="logo" href="#slide-1" aria-label="Crewzz home">
+      <img src="<?php echo esc_url($crewzz_assets); ?>/images/crewzz-logo-dark-colored.png" alt="Crewzz" width="188" height="48">
+    </a>
+    <div class="header-actions">
+      <button class="button primary js-fit" type="button">See If Your Project Is a Fit</button>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-menu">Menu</button>
+    </div>
+  </header>
+
+  <aside class="menu" id="site-menu" aria-hidden="true" aria-label="Main menu">
+    <div class="menu-top"><strong>Crewzz</strong><button class="menu-close" type="button" aria-label="Close menu">×</button></div>
+    <nav aria-label="Primary navigation">
+      <a href="#slide-3">Stewardship</a>
+      <a href="#slide-5">Design + Build</a>
+      <a href="#slide-6">Wellness + Longevity</a>
+      <a href="#slide-7">Security + Safety</a>
+      <a href="#slide-8">LIVE</a>
+      <a href="#slide-9">Hack My Home</a>
+      <a href="https://crewzz.com/our-story/">Our Story</a>
+    </nav>
+    <button class="button dark menu-cta js-fit" type="button">See If Your Project Is a Fit</button>
+  </aside>
+
+  <main id="main">
+    <section class="slide active" id="slide-1" data-title="The Promise" aria-labelledby="title-1" style="--image:url('<?php echo esc_url($crewzz_assets); ?>/images/01-hero-concept.png')">
+      <span class="concept-label">Concept imagery</span>
+      <div class="slide-inner">
+        <p class="eyebrow"><span class="stripe" aria-hidden="true"><i></i><i></i><i></i></span>Stewardship for your home</p>
+        <h1 id="title-1">Construction is complicated. <span class="accent">Losing control should not be part of it.</span></h1>
+        <p class="lead">Your home may be one of the largest and most personal investments you ever make. Crewzz helps you navigate it with clearer decisions, aligned responsibility, and someone protecting the integrity of the whole journey.</p>
+        <div class="actions">
+          <a class="button primary" href="#slide-3">Explore Stewardship</a>
+          <button class="button js-fit" type="button">See If Your Project Is a Fit</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="slide-2" data-title="The Problem" aria-labelledby="title-2" style="--image:url('<?php echo esc_url($crewzz_assets); ?>/images/02-problem-concept.png')">
+      <span class="concept-label">Concept imagery</span>
+      <div class="slide-inner">
+        <p class="eyebrow">When responsibility is fragmented</p>
+        <h2 id="title-2">The hardest part is not choosing finishes. It is knowing <span class="accent">who is protecting the whole.</span></h2>
+        <p class="lead">Budgets move. Timelines slip. Teams point in different directions. And when compensation is tied to a percentage of project cost, higher spending can create a misalignment between the homeowner and the people advising them. The result is often more exposure, less clarity, and the feeling that control is slowly disappearing.</p>
+        <div class="actions">
+          <a class="button primary" href="#slide-3">See a Better Way</a>
+          <button class="button js-fit" type="button">See If Your Project Is a Fit</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="slide-3" data-title="Stewardship" aria-labelledby="title-3" style="--image:url('<?php echo esc_url($crewzz_assets); ?>/images/03-stewardship-concept.png')">
+      <span class="concept-label">Concept imagery</span>
+      <div class="slide-inner">
+        <p class="eyebrow">A clearer category for homeowners</p>
+        <h2 id="title-3">Stewardship means your home is guided as <span class="accent">one connected responsibility.</span></h2>
+        <p class="lead">Crewzz brings planning, execution, accountability, and long-term thinking into one coordinated experience. Stewardship is also a movement toward a better homeowner experience, built around clearer decisions, aligned responsibility, and protection of the whole journey.</p>
+        <div class="actions">
+          <a class="button primary" href="https://crewzz.com/meet-crewzz/">See How Stewardship Works</a>
+          <button class="button js-fit" type="button">See If Your Project Is a Fit</button>
+        </div>
+        <div class="proof" aria-label="Stewardship principles"><span>Clearer accountability</span><span>Aligned decisions</span><span>Whole-home thinking</span></div>
+      </div>
+    </section>
+
+    <section class="slide" id="slide-4" data-title="Founder" aria-labelledby="title-4" style="--image:url('<?php echo esc_url($crewzz_assets); ?>/images/04-founder-concept.png')">
+      <span class="concept-label">Concept imagery, not Oren</span>
+      <div class="slide-inner">
+        <p class="eyebrow">Why Crewzz exists</p>
+        <h2 id="title-4">Two decades inside construction revealed what homeowners were <span class="accent">missing.</span></h2>
+        <p class="lead">Oren Dagan created Crewzz after two decades of construction and remodeling experience. He saw capable people working inside a fragmented system, while homeowners carried the consequences when incentives, information, and accountability failed to align. Stewardship was created to change that experience.</p>
+        <div class="founder-mark">Oren Dagan<span>Founder, Crewzz</span></div>
+        <div class="actions">
+          <a class="button primary" href="https://crewzz.com/our-story/">Meet Oren</a>
+          <a class="button" href="https://crewzz.com/meet-crewzz/">Meet Crewzz</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="slide-5" data-title="Design + Build" aria-labelledby="title-5" style="--image:url('<?php echo esc_url($crewzz_assets); ?>/images/05-design-build-concept.png')">
+      <span class="concept-label">Concept imagery</span>
+      <div class="slide-inner">
+        <p class="eyebrow">Design. Build. Live. Different.</p>
+        <h2 id="title-5">One vision. Two critical disciplines. <span class="accent">One accountable journey.</span></h2>
+        <p class="lead">Design should anticipate how a home will be built. Building should protect the intent behind the design. Crewzz connects both so decisions are made with the whole project in view.</p>
+        <div class="pathways" aria-label="Explore Design and Build">
+          <a class="pathway design" href="https://crewzz.com/design-different/"><small>Crewzz.Design</small><strong>Explore Design</strong></a>
+          <a class="pathway build" href="https://crewzz.com/build-different/"><small>Crewzz.Build</small><strong>Explore Build</strong></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="slide-6" data-title="Wellness" aria-labelledby="title-6" style="--image:url('<?php echo esc_url($crewzz_assets); ?>/images/06-wellness-concept.png')">
+      <span class="concept-label">Concept imagery</span>
+      <div class="slide-inner">
+        <p class="eyebrow">Wellness + Longevity</p>
+        <h2 id="title-6">Because where you live shapes <span class="accent">how you live.</span></h2>
+        <p class="lead">For Crewzz Estates clients, a home can be planned with greater attention to air, water, light, sound, materials, movement, rest, and daily routines. Wellness and Longevity are considered through an application and project-fit process, so these priorities become part of the home rather than an accessory added later.</p>
+        <div class="actions">
+          <a class="button primary" href="https://crewzz.com/wellness-homes/">Explore Wellness and Longevity</a>
+          <button class="button js-fit" type="button">See If Your Project Is a Fit</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="slide-7" data-title="Security" aria-labelledby="title-7" style="--image:url('<?php echo esc_url($crewzz_assets); ?>/images/07-security-concept.png')">
+      <span class="concept-label">Concept imagery</span>
+      <div class="slide-inner">
+        <p class="eyebrow">Security + Safety</p>
+        <h2 id="title-7">Protection should be considered <span class="accent">before it becomes urgent.</span></h2>
+        <p class="lead">Security works best when it is part of the architecture, infrastructure, technology, and operating plan of the home. Through an application and project-fit process, Crewzz helps homeowners explore a discreet, layered approach shaped around the property, the household, and the risks that matter.</p>
+        <div class="actions">
+          <a class="button primary" href="https://crewzz.com/crewzz-secure/">Discover Crewzz Secure</a>
+          <button class="button js-fit" type="button">See If Your Project Is a Fit</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="slide-8" data-title="LIVE" aria-labelledby="title-8" style="--image:url('<?php echo esc_url($crewzz_assets); ?>/images/08-live-concept.png')">
+      <span class="concept-label">Concept imagery</span>
+      <div class="slide-inner">
+        <div class="availability">Currently at capacity</div>
+        <p class="eyebrow">Crewzz.Live</p>
+        <h2 id="title-8">Maintain your home. Protect your investment. <span class="accent">Elevate the way you live.</span></h2>
+        <p class="lead">Stewardship should not end when construction does. LIVE coordinates ongoing care, maintenance, and attention to the systems and details that keep a home performing over time. Current enrollment is full.</p>
+        <div class="actions">
+          <button class="button primary js-waitlist" type="button">Join the LIVE Waitlist</button>
+          <a class="button" href="https://crewzz.com/live-different/">Explore LIVE</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="slide-9" data-title="Community" aria-labelledby="title-9" style="--image:url('<?php echo esc_url($crewzz_assets); ?>/images/09-community-concept.png')">
+      <span class="concept-label">Concept imagery</span>
+      <div class="slide-inner">
+        <p class="eyebrow">Hack My Home by Crewzz</p>
+        <h2 id="title-9">Walk into your next home decision <span class="accent">protected, not hopeful.</span></h2>
+        <p class="lead">Hack My Home is the free Crewzz community where Home Hackers learn, compare experiences, and ask better questions. Learn without being treated like a lead, inside a protected homeowner community with no unsolicited contractor chasing.</p>
+        <ul class="community-list" aria-label="Community benefits"><li>Understand costs and risks</li><li>Learn from shared experience</li><li>Make better decisions</li></ul>
+        <div class="actions">
+          <a class="button primary" href="https://crewzz.com/hack-my-home/">Join the Free Community</a>
+          <a class="button" href="https://crewzz.com/hack-my-home/">Explore Hack My Home</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="slide-10" data-title="Your Project" aria-labelledby="title-10" style="--image:url('<?php echo esc_url($crewzz_assets); ?>/images/10-project-fit-concept.png')">
+      <span class="concept-label">Concept imagery</span>
+      <div class="slide-inner">
+        <p class="eyebrow">The next step</p>
+        <h2 id="title-10">The right relationship begins with <span class="accent">the right fit.</span></h2>
+        <p class="lead">Crewzz considers project type, location, timing, scope, expectations, and current capacity. Tell us what you are planning. If there appears to be a fit, the next step is a conversation with a Crewzz advisor.</p>
+        <div class="actions">
+          <button class="button primary js-fit" type="button">See If Your Project Is a Fit</button>
+          <a class="button" href="https://crewzz.com/meet-crewzz/">Explore Crewzz</a>
+        </div>
+        <p class="lead" style="font-size:12px;margin-top:18px">Submitting an application does not guarantee acceptance or availability. Wellness and home-performance information is educational and is not medical advice.</p>
+      </div>
+    </section>
+  </main>
+
+  <nav class="side-dots" aria-label="Homepage slides"></nav>
+  <div class="slide-nav" aria-label="Slide controls"><button type="button" class="prev" aria-label="Previous slide">↑</button><button type="button" class="next" aria-label="Next slide">↓</button></div>
+  <div class="slide-count" aria-hidden="true"><span class="current">01</span><div class="progress"><span></span></div><span>10</span></div>
+  <button class="button primary mobile-cta js-fit" type="button">See If Your Project Is a Fit</button>
+
+  <div class="modal" id="fit-modal" role="dialog" aria-modal="true" aria-labelledby="fit-title" aria-hidden="true">
+    <div class="dialog">
+      <button class="modal-close" type="button" aria-label="Close application">×</button>
+      <p class="eyebrow" style="color:#3a8e76">Project-fit application</p>
+      <h2 id="fit-title">Is Crewzz right for your project?</h2>
+      <p>Share the essentials. If your project appears aligned with Crewzz and current capacity, an advisor can invite you to schedule a conversation.</p>
+      <form class="form-grid preview-form" data-form="fit">
+        <div class="field"><label for="fit-name">Full name</label><input id="fit-name" name="name" autocomplete="name" required></div>
+        <div class="field"><label for="fit-email">Email</label><input id="fit-email" name="email" type="email" autocomplete="email" required></div>
+        <div class="field"><label for="fit-phone">Phone</label><input id="fit-phone" name="phone" type="tel" autocomplete="tel"></div>
+        <div class="field"><label for="fit-location">Project location</label><input id="fit-location" name="location" autocomplete="address-level2" required></div>
+        <div class="field"><label for="fit-type">Project type</label><select id="fit-type" name="type" required><option value="">Select one</option><option>New custom home</option><option>Major renovation</option><option>Design and planning</option><option>Security and safety</option><option>Other</option></select></div>
+        <div class="field"><label for="fit-timing">Desired timing</label><select id="fit-timing" name="timing" required><option value="">Select one</option><option>Within 3 months</option><option>3 to 6 months</option><option>6 to 12 months</option><option>More than 12 months</option><option>Still exploring</option></select></div>
+        <div class="field full"><label for="fit-message">What are you planning?</label><textarea id="fit-message" name="message" required></textarea></div>
+        <p class="form-note">Preview form only. The production developer will connect this application to the approved CRM, routing, consent language, and ASM calendar.</p>
+        <button class="button dark" type="submit">Submit Project Details</button>
+      </form>
+      <p class="form-success" role="status">Preview complete. In production, suitable applicants will continue to the ASM scheduling step.</p>
+    </div>
+  </div>
+
+  <div class="modal" id="waitlist-modal" role="dialog" aria-modal="true" aria-labelledby="waitlist-title" aria-hidden="true">
+    <div class="dialog">
+      <button class="modal-close" type="button" aria-label="Close waitlist">×</button>
+      <p class="eyebrow" style="color:#3a8e76">Crewzz.Live</p>
+      <h2 id="waitlist-title">Join the LIVE waitlist.</h2>
+      <p>LIVE is currently at capacity. Join the waitlist to be considered when future availability opens.</p>
+      <form class="form-grid preview-form" data-form="waitlist">
+        <div class="field"><label for="wait-name">Full name</label><input id="wait-name" name="name" autocomplete="name" required></div>
+        <div class="field"><label for="wait-email">Email</label><input id="wait-email" name="email" type="email" autocomplete="email" required></div>
+        <div class="field full"><label for="wait-location">Home location</label><input id="wait-location" name="location" autocomplete="address-level2" required></div>
+        <p class="form-note">Preview form only. Joining the waitlist does not guarantee future availability or acceptance.</p>
+        <button class="button dark" type="submit">Join the Waitlist</button>
+      </form>
+      <p class="form-success" role="status">You have completed the preview. The production form will confirm the real waitlist submission.</p>
+    </div>
+  </div>
+
+  <script>
+    (() => {
+      const slides = [...document.querySelectorAll('.slide')];
+      const dots = document.querySelector('.side-dots');
+      const current = document.querySelector('.slide-count .current');
+      const progress = document.querySelector('.progress span');
+      const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      let activeIndex = 0;
+
+      slides.forEach((slide, index) => {
+        const dot = document.createElement('a');
+        dot.href = '#' + slide.id;
+        dot.setAttribute('aria-label', `Go to slide ${index + 1}: ${slide.dataset.title}`);
+        if (index === 0) dot.classList.add('active');
+        dots.appendChild(dot);
+      });
+      const dotLinks = [...dots.children];
+
+      const setActive = index => {
+        activeIndex = index;
+        slides.forEach((s, i) => s.classList.toggle('active', i === index));
+        dotLinks.forEach((d, i) => {
+          d.classList.toggle('active', i === index);
+          if (i === index) d.setAttribute('aria-current', 'true'); else d.removeAttribute('aria-current');
+        });
+        current.textContent = String(index + 1).padStart(2, '0');
+        progress.style.width = `${((index + 1) / slides.length) * 100}%`;
+        document.title = index === 0 ? 'Crewzz | Stewardship for Your Home' : `${slides[index].dataset.title} | Crewzz`;
+      };
+
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && entry.intersectionRatio >= .55) setActive(slides.indexOf(entry.target));
+        });
+      }, { threshold: [.55] });
+      slides.forEach(slide => observer.observe(slide));
+
+      const go = index => slides[Math.max(0, Math.min(slides.length - 1, index))].scrollIntoView({behavior: reduceMotion ? 'auto' : 'smooth'});
+      document.querySelector('.prev').addEventListener('click', () => go(activeIndex - 1));
+      document.querySelector('.next').addEventListener('click', () => go(activeIndex + 1));
+      document.addEventListener('keydown', event => {
+        if (document.body.classList.contains('modal-open')) return;
+        if (['ArrowDown','PageDown'].includes(event.key)) { event.preventDefault(); go(activeIndex + 1); }
+        if (['ArrowUp','PageUp'].includes(event.key)) { event.preventDefault(); go(activeIndex - 1); }
+        if (event.key === 'Home') go(0);
+        if (event.key === 'End') go(slides.length - 1);
+      });
+
+      const menu = document.querySelector('.menu');
+      const menuButton = document.querySelector('.menu-button');
+      const menuClose = document.querySelector('.menu-close');
+      const setMenu = open => {
+        menu.classList.toggle('open', open);
+        menu.setAttribute('aria-hidden', String(!open));
+        menuButton.setAttribute('aria-expanded', String(open));
+        if (open) menuClose.focus(); else menuButton.focus();
+      };
+      menuButton.addEventListener('click', () => setMenu(true));
+      menuClose.addEventListener('click', () => setMenu(false));
+      menu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => setMenu(false)));
+
+      let returnFocus = null;
+      let hiddenState = [];
+      const focusables = modal => [...modal.querySelectorAll('button,[href],input,select,textarea,[tabindex]:not([tabindex="-1"])')].filter(el => !el.disabled);
+      const openModal = (modal, trigger) => {
+        returnFocus = trigger;
+        hiddenState = [...document.body.children].filter(el => el !== modal && el.tagName !== 'SCRIPT').map(el => [el, el.getAttribute('aria-hidden')]);
+        hiddenState.forEach(([el]) => el.setAttribute('aria-hidden', 'true'));
+        modal.classList.add('open');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('modal-open');
+        focusables(modal)[0]?.focus();
+      };
+      const closeModal = modal => {
+        modal.classList.remove('open');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('modal-open');
+        hiddenState.forEach(([el, value]) => value === null ? el.removeAttribute('aria-hidden') : el.setAttribute('aria-hidden', value));
+        hiddenState = [];
+        returnFocus?.focus();
+      };
+      const fitModal = document.getElementById('fit-modal');
+      const waitlistModal = document.getElementById('waitlist-modal');
+      document.querySelectorAll('.js-fit').forEach(button => button.addEventListener('click', () => { if (menu.classList.contains('open')) setMenu(false); openModal(fitModal, button); }));
+      document.querySelectorAll('.js-waitlist').forEach(button => button.addEventListener('click', () => openModal(waitlistModal, button)));
+      document.querySelectorAll('.modal').forEach(modal => {
+        modal.querySelector('.modal-close').addEventListener('click', () => closeModal(modal));
+        modal.addEventListener('click', event => { if (event.target === modal) closeModal(modal); });
+        modal.addEventListener('keydown', event => {
+          if (event.key === 'Escape') closeModal(modal);
+          if (event.key !== 'Tab') return;
+          const items = focusables(modal); const first = items[0]; const last = items[items.length - 1];
+          if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+          else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+        });
+      });
+
+      document.querySelectorAll('.preview-form').forEach(form => form.addEventListener('submit', event => {
+        event.preventDefault();
+        form.hidden = true;
+        form.nextElementSibling.classList.add('show');
+      }));
+
+      window.crewzzTrack = (eventName, parameters = {}) => {
+        if (typeof window.gtag === 'function') window.gtag('event', eventName, parameters);
+        if (typeof window.fbq === 'function') window.fbq('trackCustom', eventName, parameters);
+      };
+      document.querySelectorAll('a,button').forEach(el => el.addEventListener('click', () => {
+        const label = el.textContent.trim().replace(/\s+/g, ' ').slice(0, 80);
+        if (label) window.crewzzTrack('cta_click', {cta_label: label, slide: slides[activeIndex]?.dataset.title || 'unknown'});
+      }));
+    })();
+  </script>
+  <?php wp_footer(); ?>
+</body>
+</html>

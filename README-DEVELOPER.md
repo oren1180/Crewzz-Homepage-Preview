@@ -20,6 +20,8 @@ This package does not replace any internal page, Elementor template, plugin, or 
 
 ## Required integrations before launch
 
+- Create and publish `/how-crewzz-works/` before activating the WordPress template. The standalone preview routes those CTAs to the Stewardship slide until that page exists.
+
 - Project-fit application: GoHighLevel, followed by the ASM scheduling flow.
 - Crewzz Secure application: GoHighLevel.
 - Wellness and Longevity application: GoHighLevel, restricted to Crewzz Estates clients and project fit.
@@ -31,7 +33,7 @@ This package does not replace any internal page, Elementor template, plugin, or 
 
 ## Video replacement pattern
 
-For cinematic video, replace a slide's generated background with an HTML5 video inside that slide:
+Use cinematic background video only on the Promise and Design + Build slides. The current images remain as poster fallbacks until approved video files are supplied. Add an HTML5 video inside those slides:
 
 ```html
 <video class="slide-media" autoplay muted loop playsinline poster="poster-image.webp">
@@ -40,7 +42,7 @@ For cinematic video, replace a slide's generated background with an HTML5 video 
 </video>
 ```
 
-Use a short, compressed, silent 16:9 loop. Retain the poster image, do not autoplay audio, and disable autoplay motion for visitors who prefer reduced motion. WordPress should serve the files from the Media Library or a configured CDN.
+Use a short, compressed, silent 16:9 loop. Retain the poster image, do not autoplay audio, and replace the video with its poster for visitors who prefer reduced motion. The menu intentionally retains the existing Crewzz brand video. WordPress should serve final files from the Media Library or a configured CDN.
 
 ## Copy decisions included
 
@@ -52,4 +54,3 @@ Use a short, compressed, silent 16:9 loop. Retain the poster image, do not autop
 - Crewzz Secure is by application and project fit.
 - Wellness and Longevity are for Crewzz Estates clients, by application and project fit.
 - LIVE is currently at capacity and routes to a waitlist.
-

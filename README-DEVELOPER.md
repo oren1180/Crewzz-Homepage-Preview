@@ -3,7 +3,8 @@
 ## What is included
 
 - `index.html`: standalone review and GitHub Pages preview.
-- `crewzz-homepage.php`: WordPress child-theme page template.
+- `crewzz-homepage.php`: WordPress child-theme page template that renders the reviewed `index.html` source without copy or layout drift.
+- `resource-center.html`: the proposed Resource Center architecture and preview landing page.
 - `assets/images/`: temporary generated concept images plus official Crewzz logo assets.
 
 The ten concept images are temporary and must not be represented as Crewzz projects. Replace them with Crewzz-owned photography or properly licensed final media before production launch.
@@ -16,7 +17,9 @@ The ten concept images are temporary and must not be represented as Crewzz proje
 4. Make the page the site homepage under **Settings > Reading**.
 5. Confirm that the current theme does not add a second header or footer to this full-document template.
 
-This package does not replace any internal page, Elementor template, plugin, or existing site content. The developer may translate each slide into Elementor containers if ongoing visual editing inside Elementor is preferred.
+This package does not replace any internal page, Elementor template, plugin, or existing site content. The developer may translate each chapter into Elementor containers if ongoing visual editing inside Elementor is preferred. Preserve the chapter-specific visual treatments instead of converting every section into the same background-image template.
+
+Create `/resources/` in WordPress using `resource-center.html` as the content and information-architecture reference. The preview contains proposed category links. Confirm the final WordPress permalinks before launch.
 
 ## Required integrations before launch
 
@@ -33,7 +36,7 @@ This package does not replace any internal page, Elementor template, plugin, or 
 
 ## Video replacement pattern
 
-Use cinematic background video only on the Promise and Design + Build slides. The current images remain as poster fallbacks until approved video files are supplied. Add an HTML5 video inside those slides:
+Use cinematic background video only on the Promise and Design + Build chapters. The current images remain as poster fallbacks until approved video files are supplied. Add an HTML5 video inside those chapters:
 
 ```html
 <video class="slide-media" autoplay muted loop playsinline poster="poster-image.webp">
@@ -51,6 +54,15 @@ Use a short, compressed, silent 16:9 loop. Retain the poster image, do not autop
 - Hack My Home members are called Home Hackers.
 - Community promise: `Learn without being treated like a lead.`
 - Supporting protection: no unsolicited contractor chasing.
-- Crewzz Secure is by application and project fit.
+- Security and Safety is by application and project fit.
 - Wellness and Longevity are for Crewzz Estates clients, by application and project fit.
 - LIVE is currently at capacity and routes to a waitlist.
+
+## SEO and AI-search launch requirements
+
+- Add the Resource Center to the XML sitemap and the primary navigation.
+- Publish original, expert-reviewed articles with visible authors, updated dates, descriptive headings, contextual internal links, and useful images or video.
+- Add `Article`, `BreadcrumbList`, and `VideoObject` structured data only where the visible page content supports it.
+- Confirm `robots.txt` allows Googlebot, Bingbot, and OAI-SearchBot to crawl public content. Do not block required CSS, JavaScript, images, or video posters.
+- Verify canonical URLs, Open Graph images, redirects, Core Web Vitals, and Search Console indexing after production deployment.
+- Do not add invented FAQ markup, ratings, locations, services, research, or claims solely for search visibility.

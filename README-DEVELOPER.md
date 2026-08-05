@@ -1,11 +1,21 @@
 # Crewzz Cinematic Homepage
 
+## Locked commercial-language decision
+
+- Crewzz charges a disclosed flat monthly fee.
+- Crewzz does not add a percentage markup to approved pass-through project costs for materials, trade labor, or change orders.
+- Do not use "zero markup" or "Net Pricing" as an undefined standalone claim.
+- Any separate procurement, administration, design, supervision, coordination, delivery, storage, payment-processing, insurance, or specialty-service charge must be disclosed before client approval.
+- Crewzz does not currently receive vendor rebates, referral fees, commissions, or purchasing incentives.
+- Future vendor-specific compensation arrangements are permitted only when disclosed clearly for the applicable vendor and client transaction.
+- Public copy must not promise that Crewzz will never receive vendor compensation in the future.
+
 ## What is included
 
 - `index.html`: standalone review and GitHub Pages preview.
 - `crewzz-homepage.php`: WordPress child-theme page template that renders the reviewed `index.html` source without copy or layout drift.
 - `resource-center.html`: the proposed Resource Center architecture and preview landing page.
-- `how-crewzz-works.html`, `design.html`, `build.html`, and `estates.html`: substantial internal-page previews with production canonical URLs.
+- `how-crewzz-works.html`, `design.html`, `build.html`, `estates.html`, and `secure.html`: substantial internal-page previews with production canonical URLs.
 - `internal.css`: shared internal-page design system.
 - `robots.txt` and `sitemap.xml`: production-ready starting points that must be installed at the site root and verified after deployment.
 - `assets/images/`: temporary generated concept images plus official Crewzz logo assets.

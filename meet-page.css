@@ -1,0 +1,23 @@
+:root{--accent:#fff}
+.hero{background-image:linear-gradient(90deg,rgba(4,34,44,.93),rgba(4,34,44,.52)),url("assets/images/03-stewardship-concept.png");background-size:cover;background-position:center}
+.hero::before{background:radial-gradient(circle at 78% 35%,rgba(82,204,169,.18),transparent 28%),linear-gradient(125deg,rgba(231,84,101,.09),transparent 42%)}
+.model{padding:clamp(78px,10vw,150px) var(--pad);background:var(--dark);color:#fff}
+.model-grid{max-width:1420px;margin:auto;display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(48px,8vw,130px);align-items:start}
+.model h2{font:500 clamp(42px,6vw,86px)/.96 var(--display);letter-spacing:-.055em;margin:12px 0 28px;max-width:10ch}
+.model-copy>p{font-size:clamp(17px,1.5vw,21px);line-height:1.65;color:rgba(255,255,255,.76);max-width:660px}
+.model-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.14);margin-top:38px}
+.model-card{background:var(--dark);padding:26px 22px;min-height:210px}
+.model-card small{font:700 10px var(--display);letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.46)}
+.model-card h3{font:500 24px/1.08 var(--display);letter-spacing:-.035em;margin:38px 0 12px}
+.model-card p{font-size:13px;line-height:1.6;color:rgba(255,255,255,.62)}
+.model-disclosure{display:block;margin-top:24px;max-width:790px;color:rgba(255,255,255,.48);font-size:10.5px;line-height:1.65}
+.disciplines{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:30px}
+.disciplines span{border-top:1px solid rgba(4,34,44,.18);padding:15px 0;font:600 12px var(--display)}
+.origin{padding:clamp(76px,10vw,145px) var(--pad);background:#fff;color:var(--dark)}
+.origin-grid{max-width:1420px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:clamp(50px,8vw,130px);align-items:center}
+.origin-media{min-height:540px;background:linear-gradient(145deg,rgba(4,34,44,.04),rgba(82,204,169,.18)),url("assets/images/03-stewardship-concept.png") center/cover;position:relative}
+.origin-media span{position:absolute;left:18px;bottom:18px;background:var(--dark);color:#fff;padding:8px 11px;font:700 9px var(--display);letter-spacing:.13em;text-transform:uppercase}
+.origin h2{font:500 clamp(38px,5vw,70px)/.98 var(--display);letter-spacing:-.052em;margin:12px 0 28px}
+.origin p{font-size:17px;line-height:1.72;color:rgba(4,34,44,.72)}
+.origin strong{color:var(--dark)}
+@media(max-width:900px){.model-grid,.origin-grid{grid-template-columns:1fr}.model-cards{grid-template-columns:1fr}.model-card{min-height:0}.disciplines{grid-template-columns:1fr}.origin-media{min-height:380px}}
